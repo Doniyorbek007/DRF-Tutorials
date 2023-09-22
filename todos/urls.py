@@ -2,10 +2,15 @@
 # from .views import *
 
 # urlpatterns = [
-#     path('',index, name='index')
+#     path('', index, name='index')
 # ]
-#______________________
+# ______________
 
 from django.urls import path
 
-from .views import Todo
+from .views import ListTodo, DetailTodo
+
+urlpatterns = [
+    path('', ListTodo.as_view()),
+    path('<int:pk>/', DetailTodo.as_view()),
+]
